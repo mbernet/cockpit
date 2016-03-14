@@ -1,6 +1,6 @@
 <?php
 
-$app->bind("/weather", function() {
+$app->bind("/weather", function($params) use ($routes) {
     $token = $this->param("token", false);
     //echo $token;
     if (!$token) {
@@ -13,6 +13,7 @@ $app->bind("/weather", function() {
         $this->response->status = 401;
         return ["error" => "access denied"];
     }
+    var_dump($params);
     echo "hello world";
     exit();
 });
