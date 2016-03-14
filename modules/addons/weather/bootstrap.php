@@ -1,5 +1,7 @@
 <?php
 
+define('OPENWEATHER_API_KEY', '91313229aedf333d6446e32571a7aab0');
+
 $app->bind("/weather", function($params) use ($routes) {
     $token = $this->param("token", false);
     //echo $token;
@@ -13,8 +15,28 @@ $app->bind("/weather", function($params) use ($routes) {
         $this->response->status = 401;
         return ["error" => "access denied"];
     }
+
     var_dump($_REQUEST);
-    echo "hello world";
+
+    $query = array(
+        'lat'   =>  '35',
+        'lon'   =>  '139',
+        'appid' => OPENWEATHER_API_KEY
+    );
+
+    $qString = http_build_query($query);
+    $url = 'http://api.openweathermap.org/data/2.5/weather'.$qString;
+    $ch = curl_init();
+
+    curl_setopt($ch, CURLOPT_URL, $url);
+
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
+    $output = curl_exec($ch);
+
+    curl_close($ch);
+
+    echo $output;
     exit();
 });
 
