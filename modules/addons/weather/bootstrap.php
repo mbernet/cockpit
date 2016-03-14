@@ -26,7 +26,7 @@ $app->bind("/weather", function($params) use ($routes) {
 
     $qString = http_build_query($query);
     $url = 'http://api.openweathermap.org/data/2.5/weather'.$qString;
-
+    echo $url;
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
