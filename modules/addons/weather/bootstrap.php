@@ -20,14 +20,13 @@ $app->bind("/weather", function($params) use ($routes) {
     //var_dump($_REQUEST);
 
     $query = array(
-        'lat'   =>  '35',
-        'lon'   =>  '139',
+        'id'    => OPENWEATHER_IBIZA_ID,
         'appid' => OPENWEATHER_API_KEY
     );
 
     $qString = http_build_query($query);
     $url = 'http://api.openweathermap.org/data/2.5/weather?'.$qString;
-    echo $url;
+
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -35,7 +34,7 @@ $app->bind("/weather", function($params) use ($routes) {
 
     curl_close($ch);
 
-    echo $output;
+    return $output;
     exit();
 });
 
