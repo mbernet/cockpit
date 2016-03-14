@@ -1,5 +1,5 @@
 <?php
 
-$app->bind("/weather", , function() {
+$app->bind("/weather", function() {
     echo "hello world";
 });
