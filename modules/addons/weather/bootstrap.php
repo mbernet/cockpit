@@ -16,7 +16,7 @@ $app->bind("/weather", function($params) use ($routes) {
         return ["error" => "access denied"];
     }
 
-    var_dump($_REQUEST);
+    //var_dump($_REQUEST);
 
     $query = array(
         'lat'   =>  '35',
@@ -26,8 +26,7 @@ $app->bind("/weather", function($params) use ($routes) {
 
     $qString = http_build_query($query);
     $url = 'http://api.openweathermap.org/data/2.5/weather'.$qString;
-    echo $url;
-    die();
+
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
