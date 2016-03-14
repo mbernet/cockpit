@@ -1,7 +1,7 @@
 <?php
 
-//var_dump($app);
+// Helper
+$app->helpers["backup"]   = 'Backups\\Helper\\Backup';
 
-$app->bind("/weather/*", function() {
-
-});
+// Routes
+$app->bindClass("Backups\\Controller\\Backups", "backups");
