@@ -26,6 +26,7 @@ $app->bind("/weather", function($params) use ($routes) {
     $oCache = new CacheAPC();
 
     if($result = $oCache->getData('ibiza_weather')) {
+        die('entra');
         return $result;
     } else {
         $query = array(
