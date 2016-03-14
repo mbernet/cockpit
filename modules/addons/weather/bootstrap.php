@@ -1,10 +1,12 @@
 <?php
-/*
+
 $app->bind("/weather", function() {
+    $token = $this->param("token", false);
+    echo $token;
     echo "hello world";
     exit();
 });
-*/
+
 
 
 $app->on("before", function() {
