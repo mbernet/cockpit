@@ -13,7 +13,7 @@ $app->bind("/weather", function($params) use ($routes) {
         $this->response->status = 401;
         return ["error" => "access denied"];
     }
-    var_dump($_POST);
+    var_dump($_REQUEST);
     echo "hello world";
     exit();
 });
