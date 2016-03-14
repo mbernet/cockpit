@@ -2,7 +2,17 @@
 
 $app->bind("/weather", function() {
     $token = $this->param("token", false);
-    echo $token;
+    //echo $token;
+    if (!$token) {
+        return false;
+    }
+
+    $tokens = $this->db->getKey("cockpit/settings", "cockpit.api.tokens", []);
+
+    if (!isset($tokens[$token])) {
+        $this->response->status = 401;
+        return ["error" => "access denied"];
+    }
     echo "hello world";
     exit();
 });
