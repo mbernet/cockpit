@@ -1,3 +1,3 @@
 <?php
 
-var_dump($app);
+//var_dump($app);
