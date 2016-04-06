@@ -33,7 +33,7 @@ $app->bind("/weather", function($params) use ($routes) {
             'appid' => OPENWEATHER_API_KEY
         );
 
-        if(isset($_GET['units'])) {
+        if(isset($_REQUEST['units'])) {
             $query['units'] = $_GET['units'];
         }
 
