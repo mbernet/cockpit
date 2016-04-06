@@ -35,7 +35,7 @@ $app->bind("/weather", function($params) use ($routes) {
         );
 
         if(isset($_REQUEST['units'])) {
-            $query['units'] = $_GET['units'];
+            $query['units'] = $_REQUEST['units'];
         }
 
         $qString = http_build_query($query);
