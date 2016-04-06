@@ -33,6 +33,10 @@ $app->bind("/weather", function($params) use ($routes) {
             'appid' => OPENWEATHER_API_KEY
         );
 
+        if(isset($_GET['units'])) {
+            $query['units'] = $_GET['units'];
+        }
+
         $qString = http_build_query($query);
         $url = 'http://api.openweathermap.org/data/2.5/weather?'.$qString;
 
