@@ -25,7 +25,8 @@ $app->bind("/weather", function($params) use ($routes) {
 
     $oCache = new CacheAPC();
 
-    if($result = $oCache->getData('ibiza_weather')) {
+    $hash = md5(serialize($_REQUEST));
+    if($result = $oCache->getData('ibiza_weather'.$hash)) {
         return $result;
     } else {
         $query = array(
@@ -46,7 +47,7 @@ $app->bind("/weather", function($params) use ($routes) {
         $output = curl_exec($ch);
 
         curl_close($ch);
-        $oCache->setData('ibiza_weather', $output);
+        $oCache->setData('ibiza_weather'.$hash, $output);
         return $output;
     }
 
