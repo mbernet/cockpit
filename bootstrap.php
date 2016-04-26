@@ -55,7 +55,7 @@ function cockpit($module = null) {
         $config = array_replace_recursive([
 
             'debug'        => false,
-            'app.name'     => 'Cockpit',
+            'app.name'     => 'Cotton',
             'base_url'     => COCKPIT_BASE_URL,
             'base_route'   => COCKPIT_BASE_ROUTE,
             'docs_root'    => COCKPIT_DOCS_ROOT,
