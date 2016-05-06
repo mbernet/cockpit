@@ -5,6 +5,7 @@
 .project
 .settings
 .idea
+/storage/*
 /storage/backups/*.zip
 /storage/cache/assets/*.js
 /storage/cache/assets/*.css
